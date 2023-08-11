@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container-wrapper">
+            <div class="black-side">
+              <h3 class="text-light text-center" style="padding-top: 20px;">Welcome to WeatherApp</h3>
+              <form method="post">
+                {% csrf_token %}
+                <div class="search-box">
+                    <input type="text" name="city" class="search-input text-light" placeholder="Enetr Location..." />
+                    <button type="submit" class="search-btn">Check !</button>
+                </div>
+              </form>
+              <h6 class="text-center text-secondary">Explore more</h6><br>
+              <div>
+                <div class="sidebar-list">
+                  <a href="{% url 'home' %}" class="item" style="background-color: #6c83b3;">Home</a>
+                  <a href="{% url 'realtime' %}" class="item">Realtime</a>
+                  <a href="{% url 'forecast' %}" class="item">Forecast</a>
+                  <a href="{% url 'history' %}" class="item">History</a>
+                  <a href="{% url 'about' %}" class="item">About</a>
+                </div>
+              </div>
+            </div>
+      <div class="container-side">
+          <div class="container">
+              <div class="col-md-12 col-lg-6">
+                  <div class="card" style="color: #4B515D; border-radius: 35px;">
+                      <div class="card-body p-4">
+                        <div class="d-flex">
+                          <h6 class="flex-grow-1">Warsaw</h6>
+                          <h6>15:07</h6>
+                        </div>
+                        <div class="d-flex flex-column text-center mt-5 mb-4">
+                          <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;"> 13°C </h6>
+                          <span class="small" style="color: #868B94">Stormy</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="flex-grow-1" style="font-size: 1rem;">
+                            <div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1"> 40 km/h</span></div>
+                            <div><i class="fas fa-tint fa-fw" style="color: #868B94;"></i> <span class="ms-1"> 84% </span></div>
+                            <div><i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1"> 0.2h </span></div>
+                          </div>
+                          <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp" width="100px">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</body>
+</html>
